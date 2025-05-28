@@ -2,10 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Car Image Viewer</title>
+  <title>Auto Analysis Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    #dashboard-img {
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .zoom-btn {
+      font-size: 18px;
+      margin: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #0078d4;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <h1>Auto Analysis Dashboard </h1>
-  <img src="Autoanalysisdashboard.png">
+  <h1>🚗 Auto Analysis Dashboard</h1>
+
+  <div>
+    <button class="zoom-btn" onclick="zoomIn()">Zoom In +</button>
+    <button class="zoom-btn" onclick="zoomOut()">Zoom Out −</button>
+  </div>
+
+  <img id="dashboard-img" src="Autoanalysisdashboard.png" alt="Dashboard Screenshot">
+
+  <script>
+    let zoomLevel = 1;
+
+    function zoomIn() {
+      zoomLevel += 0.1;
+      document.getElementById("dashboard-img").style.transform = `scale(${zoomLevel})`;
+    }
+
+    function zoomOut() {
+      zoomLevel = Math.max(0.5, zoomLevel - 0.1);
+      document.getElementById("dashboard-img").style.transform = `scale(${zoomLevel})`;
+    }
+  </script>
 </body>
 </html>
